@@ -57,7 +57,50 @@ body {
   }
 
   .slider {
-    @apply h-4 w-full cursor-pointer appearance-none rounded-full bg-white/10 accent-violet-100;
+    @apply h-9 w-full cursor-pointer appearance-none rounded-full bg-transparent accent-violet-100;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .slider:focus {
+    outline: none;
+  }
+
+  .slider::-webkit-slider-runnable-track {
+    height: 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 32px;
+    height: 32px;
+    margin-top: -9px;
+    border: 4px solid #ffffff;
+    border-radius: 999px;
+    background: #c4b5fd;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .slider:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 5px rgba(196, 181, 253, 0.24), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .slider::-moz-range-track {
+    height: 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border: 4px solid #ffffff;
+    border-radius: 999px;
+    background: #c4b5fd;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   }
 
   .select-field {

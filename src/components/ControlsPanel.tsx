@@ -160,7 +160,21 @@ function Range(props: { label: string; id: string; min: number; max: number; ste
         <label htmlFor={props.id} className="control-label">{props.label}</label>
         <span className="value-pill">{props.display}</span>
       </div>
-      <input id={props.id} className="slider" type="range" min={props.min} max={props.max} step={props.step} value={props.value} onChange={(event) => props.onChange(Number(event.target.value))} />
+      <input
+        id={props.id}
+        className="slider"
+        type="range"
+        min={props.min}
+        max={props.max}
+        step={props.step}
+        value={props.value}
+        onPointerDown={(event) => {
+          event.currentTarget.focus();
+          event.stopPropagation();
+        }}
+        onTouchStart={(event) => event.stopPropagation()}
+        onChange={(event) => props.onChange(Number(event.target.value))}
+      />
     </div>
   );
 }
