@@ -35,18 +35,28 @@ npm run dev
 npm run build
 ```
 
-The static site is emitted to `dist/`.
+The static site is emitted to `dist/`. The committed GitHub Pages copy lives in `docs/`.
 
 ## Deploy to GitHub Pages
 
-This repo includes `.github/workflows/deploy.yml`, which builds the Vite app and deploys `dist/` to GitHub Pages on pushes to `main`.
+This repo commits the built static site in `docs/`, so GitHub Pages can publish without a deployment workflow.
 
 In GitHub:
 
 1. Go to repository Settings.
 2. Open Pages.
-3. Set Source to GitHub Actions.
-4. Push to `main` or run the workflow manually.
+3. Set Source to `Deploy from a branch`.
+4. Select branch `main`.
+5. Select folder `/docs`.
+6. Save.
+
+When the app changes, run:
+
+```bash
+npm run build
+cp -R dist/. docs/.
+touch docs/.nojekyll
+```
 
 ## Custom domain
 
